@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dados</title>
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+        <script type="module" src="./js/main.js" defer></script>
+    </head>
+    <body>
+        <div class="modal" id="modal">
+            <div class="modal__content modal__content--inicio">
+                <h2>¡Bienvenido!</h2>
+                <p class="">Para comenzar a jugar, elija sus preferencias.</p>
+                <form id="modal-form">
+                    <div>
+                        <label for="n-tiros">Numero de tiros:</label>
+                        <input
+                            type="number"
+                            id="n-tiros"
+                            name="n-tiros"
+                            min="1"
+                            max="100"
+                            value="10"
+                        />
+                    </div>
+                    <div>
+                        <label for="n-dados">Numero de dados:</label>
+                        <input
+                            type="number"
+                            id="n-dados"
+                            name="n-dados"
+                            min="1"
+                            max="4"
+                            value="2"
+                        />
+                    </div>
+                    <button id="btn-iniciar" class="btn">Iniciar</button>
+                </form>
+            </div>
+        </div>
+        <main class="main">
+            <h1>¡Tira los dados!</h1>
+            <div class="canvas"></div>
+            <button id="btn-lanzar" class="btn">Tira los dados</button>
+        </main>
+        <section class="stats">
+            <p>Tiradas máximas: <span id="n-tiros-max">-</span></p>
+            <p>
+                Numero de jugadas realizadas: <span id="n-tiros-real">-</span>
+            </p>
+            <p>Numero de jugadas restantes: <span id="n-tiros-rest">-</span></p>
+        </section>
+    </body>
+</html>

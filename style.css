@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    color: #fff;
+    background-color: #111;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    font-family: Rubik, sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+body > * {
+    padding: 10px;
+    margin: 0 auto;
+    height: auto;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: #000000af;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__content {
+    max-width: 300px;
+    width: 100%;
+}
+
+.modal__content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal__content p {
+    width: 100%;
+    text-align: left;
+    text-wrap: pretty;
+    margin-bottom: 20px;
+}
+
+.modal__content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.modal__content form div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.modal__content form input {
+    padding: 5px 10px;
+    width: 30%;
+}
+
+.main {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.stats {
+    width: 30%;
+    height: min-content;
+    background-color: #333;
+    border-radius: 10px;
+}
+.canvas {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 100%;
+    min-width: 300px;
+    grid-template-rows: auto;
+    margin: auto;
+    font-weight: 400;
+}
+
+.contenedor-dado {
+    padding: 50px;
+    width: 300px;
+    height: 300px;
+    perspective: 300px;
+}
+
+.dado {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    transition: transform 1s;
+}
+
+.dado--cara-1 {
+    transform: translateZ(-100px) rotateY(0deg);
+}
+
+.dado--cara-2 {
+    transform: translateZ(-100px) rotateY(-90deg);
+}
+
+.dado--cara-3 {
+    transform: translateZ(-100px) rotateY(-180deg);
+}
+
+.dado--cara-4 {
+    transform: translateZ(-100px) rotateY(90deg);
+}
+
+.dado--cara-5 {
+    transform: translateZ(-100px) rotateX(-90deg);
+}
+
+.dado--cara-6 {
+    transform: translateZ(-100px) rotateX(90deg);
+}
+
+.dado__cara {
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    background-color: #e00a0ad0;
+    text-align: center;
+}
+
+.dado__cara--1 {
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+.dado__cara--2 {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.dado__cara--3 {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.dado__cara--4 {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.dado__cara--5 {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.dado__cara--6 {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+.dado__cara span {
+    display: block;
+    border: 3px solid #ffffff;
+    background-color: #ffffff80;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.dado__cara span:nth-child(1) {
+    top: 50%;
+    left: 50%;
+}
+
+.dado__cara span:nth-child(2) {
+    top: 25%;
+    left: 25%;
+}
+
+.dado__cara span:nth-child(3) {
+    top: 75%;
+    left: 75%;
+}
+
+.dado__cara span:nth-child(4) {
+    top: 25%;
+    left: 75%;
+}
+
+.dado__cara span:nth-child(5) {
+    top: 75%;
+    left: 25%;
+}
+
+.dado__cara:nth-child(2n) span:nth-child(1) {
+    top: 25%;
+    left: 25%;
+}
+
+.dado__cara:nth-child(2n) span:nth-child(2) {
+    top: 75%;
+    left: 75%;
+}
+
+.dado__cara:nth-child(2n) span:nth-child(3) {
+    top: 75%;
+    left: 25%;
+}
+
+.dado__cara:nth-child(2n) span:nth-child(4) {
+    top: 25%;
+    left: 75%;
+}
+
+.dado__cara:nth-child(2n) span:nth-child(5) {
+    top: 75%;
+    left: 50%;
+}
+
+.dado__cara:nth-child(2n) span:nth-child(6) {
+    top: 25%;
+    left: 50%;
+}
+
+.btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ba0b0b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn[disabled] {
+    background-color: #666;
+}
+
+.hidden {
+    display: none;
+}
